@@ -1,0 +1,673 @@
+/* SHARED */  
+
+/* General Reset */  
+/*----------------------------------*/  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+    font-family: Arial, sans-serif;  
+}  
+
+body, html {  
+    width: 100%;  
+    height: 100%;  
+    box-sizing: border-box;  
+}  
+
+/* Container */  
+/*----------------------------------*/  
+.container {  
+    width: 100%;  
+    height: 100%;  
+    background-color: #f8f8f8;  
+    display: flex;  
+    flex-direction: column;  
+}  
+
+/* Buttons */  
+/*----------------------------------*/  
+button {  
+    cursor: pointer;  
+    padding: 10px;  
+    margin: 20px;  
+    border: none;  
+    border-radius: 5px;  
+    font-weight: bold;  
+    background-color: #4CAF50;  
+    color: white;  
+    font-size: 40px;  
+    transition: background-color 0.3s ease;  
+}  
+
+.delete-btn {  
+    background-color: #e74c3c;  
+    color: #fff;  
+    border: none;  
+    padding: 10px;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 20px;  
+    transition: background 0.3s ease;  
+}  
+
+
+button:hover {  
+    background-color: #45a049;  
+}  
+
+.yes-btn, .no-btn {  
+    margin-top: 20px;  
+    width: 150px;  
+    text-align: center;  
+}  
+
+/* INPUT Section (Checkout Page) */  
+/*----------------------------------*/  
+/* Wrapper for inputContainer and scanner-container */
+.container-wrapper {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Add space between the two containers */
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Add gap between the containers */
+}
+
+/* CSS for inputContainer */
+#inputContainer {
+    flex: 1; /* Take available space */
+    max-width: 70%; /* Limit the width */
+    box-sizing: border-box; /* Include padding/border in width */
+}
+
+/* CSS for scanner-container */
+#scanner-container {
+    flex: 0 0 200px; /* Fixed width for scanner */
+    box-sizing: border-box;
+}
+
+
+#video-preview-container {
+    position: relative;
+    width: 200px; /* Target scaled width */
+    height: 112px; /* Target scaled height (1080/1920 * 200) */
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+#video-preview {
+    position: absolute;
+    width: 1920px;  /* Original width */
+    height: 1080px; /* Original height */
+    transform: scale(0.1042); /* Adjust scale to maintain aspect ratio and match desired width */
+    transform-origin: top left; /* Keep scaling from the top-left corner */
+}
+
+#output {
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: light;
+    color: rgb(202, 202, 202);
+}
+
+/* Loyalty Section (Checkout Page) */  
+/*----------------------------------*/  
+.loyalty-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    background-color: #ffffff00;
+    margin-top: 5px; /* Reduced margin for compact spacing */
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn’t add extra size */
+}
+
+.loyalty-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Keep the original spacing but slightly reduced */
+    background-color: #2b4b2f;
+    padding: 8px; /* Reduced padding for compact height */
+    flex-wrap: wrap; /* Ensure wrapping on smaller screens */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.loyalty-checkbox input[type="checkbox"] {
+    appearance: none; /* Original circular checkbox */
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border: 2px solid #d6af68;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    margin: 0;
+}
+
+.loyalty-checkbox input[type="checkbox"]:checked {
+    background-color: #d6af68;
+    border-color: #d6af68;
+}
+
+.loyalty-checkbox input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    top: 50%;
+    left: 50%;
+}
+
+.loyalty-checkbox label {
+    font-size: 15px; /* Preserved original size */
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 0;
+    flex-shrink: 0; /* Prevent the label from shrinking */
+}
+
+#loyalty_card {
+    display: none;
+    flex: 1; /* Allow the input to adjust proportionally */
+    max-width: 300px; /* Original max-width preserved */
+    height: 30px; /* Fixed height */
+    margin: 0 5px; /* Minimal margin for compactness */
+    padding: 5px;
+    font-size: 14px; /* Original size */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#verifyButton {
+    display: none;
+    background-color: #4CAF50;
+    color: #fff;
+    margin-left: 5px; /* Preserve spacing but minimize excess */
+    border: none;
+    padding: 5px 15px; /* Original compact padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Original size */
+    transition: background 0.3s ease;
+}
+
+.loyalty-points {
+    border: 1px solid rgb(0, 255, 34);  
+    font-size: 30px;  
+    font-weight: bold;  
+    color: #2b4b2f;  
+}  
+
+#loyalty-points {  
+    font-size: 17px;  
+    color: #d6af68;  
+}  
+
+.loyalty-id, .points {  
+    font-size: 18px;  
+    font-weight: bold;  
+}  
+
+#usePointsSwitch, #usePointsLabel {
+    display: none; /*initialize to hide element*/
+}
+
+.use-points {  
+    margin-top: 0px;
+    margin-bottom: 20px;  
+    text-align: left;  
+}  
+
+.use-points p {  
+    font-weight: bold;  
+    color: #8b773f;  
+}  
+
+.profile {
+    display: flex;   /*Use flexbox to lay out the left and right side */
+    justify-content: space-between;  /* Ensures left and right elements are spread apart */
+    margin-top: auto;  /* Keeps it at the bottom */
+}
+
+.profile {
+    display: none;  /* initialize hide*/
+}
+
+.profile-left {
+    display: flex;  /* Keeps profile icon and loyalty ID together */
+    align-items: center;  /* Aligns the items vertically if needed */
+}
+
+.profile-icon {
+    font-size: 40px;  /* Profile icon size */
+    margin-right: 10px;  /* Space between profile icon and loyalty ID */
+}
+
+.points {
+    display: flex;  /* Keeps points and the number together */
+    align-items: center;  /* Vertically centers the points and the number */
+}
+
+.points span {
+    margin-left: 5px;  /* Space between "LOYALTY POINTS" label and the number */
+}
+
+
+/* Summary Section */  
+.summary p {  
+    padding-top: 10px;  
+    font-size: 30px;  
+    margin: 5px 0;  
+    color: #d6af68;  
+}  
+
+.summary span {  
+    font-weight: bold;  
+}  
+
+/* Input Text Fields */  
+input[type="text"],  
+textarea {  
+    width: 100%;  
+    padding-top: 8px;  
+    margin: 5px 0;  
+    border: 5px solid #d6af68;  
+    border-radius: 10px;  
+    font-size: 14px;  
+}  
+
+/* Input Number Fields */  
+input[type="number"],  
+textarea {  
+    width: 100%;  
+    padding-top: 8px;  
+    padding-left: 10px;  
+    margin: 5px 0;  
+    border: 5px solid #d6af68;  
+    border-radius: 10px;  
+    font-size: 14px;  
+}  
+
+
+textarea {  
+    resize: vertical;  
+}  
+
+/* CHECKOUT */  
+/* Header Section (Checkout Page) */  
+/*----------------------------------*/  
+.header {  
+    background-color: #2b4b2f;  
+    color: #d6af68;  
+    text-align: center;  
+    padding: 20px;  
+    font-size: 24px;  
+    font-weight: bold;  
+    border-bottom: 2px solid #333;  
+}  
+
+
+/* Totals Section (Checkout Page) */  
+/*----------------------------------*/  
+.totals {  
+    padding: 20px 20px;  
+    border-top: 2px solid #ccc;  
+    font-weight: bold;  
+    color: #fcf9f9;  
+    width: 100%;
+    margin-bottom: 0px;
+}  
+
+.totals p {  
+    display: flex;  
+    justify-content: space-between;  
+    margin-bottom: 5px;  
+}  
+
+.total span {  
+    color: #58b800;  
+}  
+
+/* Main Content Layout (Checkout Page) */  
+/*----------------------------------*/  
+.main-content {  
+    display: flex;  
+    flex-direction: row;  
+    justify-content: space-between;  
+    align-items: flex-start;  
+    padding: 20px;  
+    gap: 20px;  
+    width: 100%;  
+    height: 100%;  
+}  
+
+/* Product Table Section (Checkout Page) */  
+/*----------------------------------*/  
+.table-container {
+    flex: 1;  
+    border-radius: 10px;  
+    overflow: hidden;  
+    height: calc(100vh - 40px);  
+    overflow-y: auto;  
+}
+
+.product-table {  
+    flex: 1;  
+    border-radius: 10px;  
+    overflow: hidden;  
+    height: calc(100vh - 40px);  
+    overflow-y: auto;  
+}  
+
+.product-table table {  
+    width: 100%;  
+    border-collapse: collapse;  
+    color: #fff;  
+}  
+
+.product-table th,  
+.product-table td {  
+    padding: 20px;  
+    text-align: left;  
+    border-bottom: 2px solid #ddd;  
+}  
+
+.product-table th {  
+    background-color: #2b4b2f;  
+    color: #d6af68;  
+    font-weight: bold;  
+    text-transform: uppercase;  
+}  
+
+.product-table td {  
+    background-color: #6a6a6a;  
+}  
+
+/* Summary and Input Section (Checkout Page) */  
+/*----------------------------------*/  
+
+/*parent container*/
+#input-loyalty-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 5px; 
+}
+
+
+.input-section {  
+    flex: 1;  
+    display: flex;  
+    flex-direction: column;  
+    gap: 90px;  
+    background-color: #2b4b2f;  
+    color: #fff;  
+    padding: 30px;  
+    border-radius: 30px;  
+    height: calc(100vh - 40px);  
+    overflow-y: auto;  
+    overflow-x: auto;
+    min-width: auto;
+    max-width: 700px;
+}  
+
+label {  
+    font-weight: bold;  
+}  
+
+input, textarea {  
+    width: 80%;  
+    padding: 10px;  
+    margin: 5px 0;  
+    border: 1px solid #ccc;  
+    border-radius: 10px;  
+}  
+
+textarea {  
+    resize: none;  
+}  
+
+/* Buttons Specific to Inputs (Checkout Page) */  
+#cancelTransac {  
+    margin-top: 5px;
+    background-color: #e74c3c; 
+    color: #ffffff;  
+    border: none;  
+    padding: 10px;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 15px;  
+    transition: background 0.3s ease;  
+    box-shadow: 2px;
+}  
+
+#cancelTransac:disabled {  
+    background-color: #904037; 
+    color: #a7a7a7;  
+}  
+
+#cancelTransac:enabled {  
+    background-color: #e74c3c;  
+    color: #ffffff;  
+}  
+
+#cancelTransac:enabled:hover {  
+    background-color: #ff5d4b;  
+}  
+
+
+.add-btn {
+    color: #2b4b2f;
+    background-color: #d6af68;
+    font-size: 15px;
+    padding: 10px 20px; /* Adds space inside the button */
+    border-radius: 50px; /* Ensure proper rounding */
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: inline-block; /* Makes the button behave like a block-level element */
+    text-align: center; /* Centers text inside the button */
+    line-height: 1.5; /* Ensures the text is vertically centered */
+    width: auto; /* Ensures button width is flexible */
+    height: auto; /* Ensures button height is flexible */
+    min-width: 120px; /* Set a minimum width to help with size */
+    box-shadow: 1px black;
+}
+
+.add-btn:hover {
+    background-color: #6aa84f;
+}
+
+.delete-btn:hover {  
+    background-color: #c0392b;  
+}  
+
+.checkout-btn {  
+    margin-top: 5px;
+    background-color: #5b8b3e; 
+    color: #ffffff;  
+    border: none;  
+    padding: 10px;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 15px;  
+    transition: background 0.3s ease;  
+    box-shadow: 2px;
+}  
+
+.checkout-btn:disabled {  
+    background-color: #364c28; 
+    color: #a7a7a7;  
+}  
+
+.checkout-btn:enabled {  
+    background-color: #5b8b3e;  
+}  
+
+.checkout-btn:enabled:hover {  
+    background-color: #89ce5f;  
+}  
+
+
+/* PAYMENT */  
+/* Payment Page Specific Styling */  
+/*----------------------------------*/  
+.total-payment-containerWrapper {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 5px; 
+    flex-direction: column;  
+}
+
+.payment-container {  
+    width: 100%;  
+    padding: 20px;  
+    background-color: #80c285;  
+    border: 1px solid #ddd;  
+    border-radius: 10px;  
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);  
+    margin-top: 0px;
+}  
+
+
+.payment-summary {  
+    display: flex;  
+    justify-content: space-between;  
+    padding: 10px;  
+    font-size: 18px;  
+    border-top: 1px solid #ddd;  
+    margin-top: 15px;  
+}  
+
+.payment-button {  
+    background-color: #007bff;  
+    color: #a33232;  
+    padding: 30px 15px;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 18px;  
+    text-align: center;  
+    transition: background 0.3s ease;  
+}  
+
+.payment-button:hover {  
+    background-color: #0056b3;  
+}  
+
+.back-button {  
+    background-color: #dc3545;  
+    color: #fff;  
+    padding: 10px 15px;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 18px;  
+    text-align: center;  
+    transition: background 0.3s ease;  
+}  
+
+.back-button:hover {  
+    background-color: #c82333;  
+}  
+
+
+
+/*
+-----------------------------------------------
+ADDED NOT ORGANIZED
+*/
+
+.add-btn {
+    border-radius: 0;
+    padding: 10px 20px;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(80, 79, 79, 0.5); /* Semi-transparent overlay */
+    display: none; /* Hidden by default */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 1000; /* Ensure it floats above other elements */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(38, 100, 2, 0.1);
+    min-width: 300px;
+    max-width: 90%;
+    word-wrap: break-word;
+}
+
+.modal-content .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+.modal-content button {
+    background-color: #007bff; /* Default button color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 100px;
+    max-width: 150px;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+.modal-content button:active {
+    background-color: #003d80; /* Even darker for active state */
+}
+
+#Cancel {
+    margin: 10px;
+    color: #fff;
+    background-color: #dc3545;
+}
+#Confirm {
+    margin: 10px;
+    color: #fff;
+    background-color: #2b4b2f;
+}
+
+
+#product-name, #product-code, #product-qty {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+} 
+
+/*
+-----------------------------------------------
+*/
+
+
+/* Footer Section (Payment Page) */  
+/*----------------------------------*/  
+.footer {  
+    text-align: center;  
+    padding: 10px;  
+    background-color: #2b4b2f;  
+    color: #d6af68;  
+    font-size: 14px;  
+}  
