@@ -26,7 +26,7 @@ Route::post('/', function (\Illuminate\Http\Request $request) {
     ]);
 })->name('payment');
 
-Route::post('/transactions/store', [TransactionController::class, 'storeTransaction'])->name('transactions.store');
+//Route::post('/transactions/store', [TransactionController::class, 'storeTransaction'])->name('transactions.store');
 
 // Route ng Validate product, kung meron talagang ganung product sa database
 Route::post('/validate-product', [ProductController::class, 'validateProductCode']);
