@@ -325,7 +325,7 @@ $total = $subtotal; // Discount temporarily set to 0
                     </div>
                     {{-- onsubmit="return confirmPayment()" --}}
                     <div class="paymentButtonContainer">
-                        <form action="{{ route('transactions.store') }}" method="POST">
+                        <form action="#" method="POST">
                             @csrf
                                 <!-- PHP HERE FOR  PAYMENT LOG? -->
                             <?php foreach ($products as $product): ?>
